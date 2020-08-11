@@ -1,0 +1,17 @@
+
+{
+  "pipeline": {
+    "name": "iris-meta"
+  },
+  "description": "Copy model over and create seldon metadata based on model commit in pachyderm",
+  "transform": {
+    "cmd": [ "python3", "-c", "import os; import pprint; pprint.pprint(dict(os.environ))" ],
+    "image": "python:3"
+  },
+  "input": {
+    "pfs": {
+      "repo": "iris",
+      "glob": "/*"
+    }
+  }
+}
